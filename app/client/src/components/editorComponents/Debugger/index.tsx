@@ -19,12 +19,8 @@ import {
 } from "constants/routes";
 import TooltipComponent from "components/ads/Tooltip";
 
-const StyledTooltipComponent = styled(TooltipComponent)`
-  .${BpClasses.POPOVER_TARGET} {
-    position: absolute;
-    right: ${ICON_POSITION_RIGHT}px;
-    bottom: ${ICON_POSITION_BOTTOM}px;
-  }
+const IconContainer = styled.div`
+  padding: ${(props) => props.theme.spaces[6]}px;
 `;
 
 function Debugger() {
