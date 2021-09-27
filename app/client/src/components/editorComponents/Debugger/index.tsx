@@ -19,6 +19,14 @@ import {
 } from "constants/routes";
 import TooltipComponent from "components/ads/Tooltip";
 
+const StyledTooltipComponent = styled(TooltipComponent)`
+  .${BpClasses.POPOVER_TARGET} {
+    position: absolute;
+    right: ${ICON_POSITION_RIGHT}px;
+    bottom: ${ICON_POSITION_BOTTOM}px;
+  }
+`;
+
 function Debugger() {
   const messageCounters = useSelector(getMessageCount);
 
