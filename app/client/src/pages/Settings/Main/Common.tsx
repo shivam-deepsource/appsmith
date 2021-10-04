@@ -20,7 +20,7 @@ const StyledIcon = styled(Icon)`
 
 export const StyledFormGroup = styled.div`
   width: 357px;
-  margin-bottom: ${(props) => props.theme.spaces[3]}px;
+  margin-bottom: ${(props) => props.theme.spaces[11]}px;
 
   & span.bp3-popover-target {
     display: inline-block;
@@ -51,7 +51,6 @@ export const StyledLabel = styled.label`
 export const StyledSubtext = styled.p`
   font-size: 12px;
   color: ${Colors.GRAY};
-  transform: translate(0px, -12px);
 `;
 
 export function FormGroup({ children, setting }: FieldHelperProps) {

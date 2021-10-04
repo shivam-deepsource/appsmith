@@ -27,7 +27,7 @@ function* FetchAdminSettingsSaga() {
     });
   }
 
-  const response = yield call(UserApi.fetchSettings);
+  const response = yield call(UserApi.fetchAdminSettings);
   const isValidResponse = yield validateResponse(response);
 
   if (isValidResponse) {
@@ -80,10 +80,6 @@ function* SaveAdminSettingsSaga(action: ReduxAction<Record<string, string>>) {
   }
 }
 
-function* DownloadDockerComposeFile() {
-  debug;
-}
-
 function* RedirectToReleaseNotes() {
   const currentVersion = yield select(getCurrentVersion);
   if (currentVersion) {
@@ -103,10 +99,6 @@ function* InitSuperUserSaga(action: ReduxAction<User>) {
         FetchAdminSettingsErrorSaga,
       ),
       takeLatest(ReduxActionTypes.SAVE_ADMIN_SETTINGS, SaveAdminSettingsSaga),
-      takeLatest(
-        ReduxActionTypes.DOWNLOAD_DOCKER_COMPOSE_FILE,
-        DownloadDockerComposeFile,
-      ),
       takeLatest(
         ReduxActionTypes.REDIRECT_TO_RELEASE_NOTES,
         RedirectToReleaseNotes,
