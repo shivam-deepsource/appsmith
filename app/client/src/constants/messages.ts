@@ -696,3 +696,6 @@ export const WELCOME_HEADER = () => "Welcome!";
 export const WELCOME_BODY = () =>
   "Let us setup your account so you can make awesome applications!";
 export const WELCOME_ACTION = () => "Get Started";
+
+//settings
+export const ADMIN_SETTINGS = () => "Admin settings";

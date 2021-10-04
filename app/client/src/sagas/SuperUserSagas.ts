@@ -1,3 +1,6 @@
+import ApplicationApi, {
+  FetchUsersApplicationsOrgsResponse,
+} from "api/ApplicationApi";
 import UserApi from "api/UserApi";
 import { Variant } from "components/ads/common";
 import { Toaster } from "components/ads/Toast";
@@ -12,6 +15,18 @@ import history from "utils/history";
 import { validateResponse } from "./ErrorSagas";
 
 function* FetchAdminSettingsSaga() {
+  const releaseResponse: FetchUsersApplicationsOrgsResponse = yield call(
+    ApplicationApi.getAllApplication,
+  );
+  const isValidReleaseResponse = yield validateResponse(releaseResponse);
+  if (isValidReleaseResponse) {
+    const { newReleasesCount, releaseItems } = releaseResponse.data || {};
+    yield put({
+      type: ReduxActionTypes.FETCH_RELEASES_SUCCESS,
+      payload: { newReleasesCount, releaseItems },
+    });
+  }
+
   const response = yield call(UserApi.fetchSettings);
   const isValidResponse = yield validateResponse(response);
 

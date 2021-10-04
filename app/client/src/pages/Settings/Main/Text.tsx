@@ -1,5 +1,7 @@
 import Text, { TextType } from "components/ads/Text";
 import React from "react";
+import { getSettings } from "selectors/settingsSelectors";
+import { useSelector } from "store";
 import styled from "styled-components";
 import { FormGroup, SettingComponentProps } from "./Common";
 
@@ -12,10 +14,12 @@ const StyledText = styled(Text)`
 `;
 
 export default function Link({ setting }: SettingComponentProps) {
+  const settingsConfig = useSelector(getSettings);
+  const value = setting.name && settingsConfig && settingsConfig[setting.name];
   return (
     <FormGroup setting={setting}>
       <TextWrapper>
-        <StyledText type={TextType.P1}>{setting.value}</StyledText>
+        <StyledText type={TextType.P1}>{value}</StyledText>
       </TextWrapper>
     </FormGroup>
   );

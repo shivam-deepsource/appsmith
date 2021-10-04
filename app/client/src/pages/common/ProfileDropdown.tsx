@@ -17,6 +17,7 @@ import { PROFILE, SETTINGS_CATEGORY_DEFAULT_URL } from "constants/routes";
 import UserApi from "api/UserApi";
 import { useSelector } from "react-redux";
 import { getCurrentUser } from "selectors/usersSelectors";
+import { ADMIN_SETTINGS, createMessage } from "constants/messages";
 
 type TagProps = CommonComponentProps & {
   onClick?: (text: string) => void;
@@ -130,7 +131,7 @@ export default function ProfileDropdown(props: TagProps) {
                 path: SETTINGS_CATEGORY_DEFAULT_URL,
               });
             }}
-            text="Settings"
+            text={createMessage(ADMIN_SETTINGS)}
           />
         )}
         <MenuItem
