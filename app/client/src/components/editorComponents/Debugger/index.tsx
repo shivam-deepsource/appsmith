@@ -19,10 +19,6 @@ import {
 } from "constants/routes";
 import TooltipComponent from "components/ads/Tooltip";
 
-const IconContainer = styled.div`
-  padding: ${(props) => props.theme.spaces[6]}px;
-`;
-
 function Debugger() {
   const messageCounters = useSelector(getMessageCount);
 
